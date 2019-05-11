@@ -13,7 +13,7 @@ MongoClient.connect(uri, (err, client) => {
   if (err) return console.log(err)
   db = client.db('crud-nodejs') // coloque o nome do seu DB
 
-  app.listen(3000, () => {
+  app.listen(3001, () => {
     console.log('Server running on port 3000')
   })
 })
