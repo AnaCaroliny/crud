@@ -8,13 +8,14 @@ const MongoClient = require('mongodb').MongoClient
 const uri = "mongodb://patrickisidoro:nuzor1539@ds133279.mlab.com:33279/crud-nodejs";
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
-MongoClient.connect(uri, (err, client) => {
+MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
   if (err) return console.log(err)
   db = client.db('crud-nodejs') // coloque o nome do seu DB
 
   app.listen(3001, () => {
-    console.log('Server running on port 3000')
+    console.log('Server running on port 3001')
   })
 })
 
