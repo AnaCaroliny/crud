@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../head %>
+</head>
+  <body>
+  <!-- INCLUI A NAVBAR -->
+  <% include ../navbar %>
+
+
+    <div class="container">
+    <h2>Faturas</h2>
+
+    <a type="button" class="btn btn-primary text-right" href="/cadastrar" >Nova fatura</a>
+
+    <table class="table" border="1">
+      <thead>
+          <tr>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Ação</th>
+          </tr>
+      </thead>
+      <tbody>
+      <% data.forEach(function(details) { %>
+          <tr>
+              <td><%= details.name %></td>
+              <td><%= details.surname %></td>
+              <td><a href="/editar/<%= details._id %>">Editar</a> - <a href="/delete/<%= details._id %>">Deletar</a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      
+    </div>
+  </body>
+</html>
